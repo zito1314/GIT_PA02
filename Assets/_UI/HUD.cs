@@ -38,4 +38,5 @@ public class HUD : MonoBehaviour
     {
         Txt_Message.text = "";
     }
+
 }

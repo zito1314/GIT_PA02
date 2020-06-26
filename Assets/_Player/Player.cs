@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Player : MonoBehaviour
 {
@@ -14,6 +15,9 @@ public class Player : MonoBehaviour
     private Animator thisAnimator = null;
 
     private float moveSpeed = 0.05f;
+
+    public Text LivesText;
+    public int Lives = 3;
 
     void Start()
     {
@@ -52,6 +56,15 @@ public class Player : MonoBehaviour
 
         thisController.Move(MoveDirection);
         transform.position = new Vector3(Mathf.Clamp(transform.position.x, -1.5f, 1.5f), transform.position.y, transform.position.z);
+    }
+
+    void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.tag == "obstacles ")
+        {
+            Destroy(other.gameObject);
+            Debug.Log("Destory");
+        }
     }
 
 }

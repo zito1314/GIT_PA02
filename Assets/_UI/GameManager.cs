@@ -17,6 +17,8 @@ public class GameManager : MonoBehaviour
         Score = 0;
         Time.timeScale = 0;
         CurrentState = GameState.GameIdle;
+
+        GameManager.Score += 1;
     }
     
     void Update()
@@ -32,5 +34,9 @@ public class GameManager : MonoBehaviour
         {
             SceneManager.LoadScene(0);
         }
+
+        HUD.HUDManager.UpdateScore();
+
+        HUD.HUDManager.UpdateLives();
     }
 }
